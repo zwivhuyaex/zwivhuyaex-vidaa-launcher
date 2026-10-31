@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#080b12">
+<title>Zwivhuyaex Cinematic — VIDAA Web Prototype</title>
+<style>
+:root{--gold:#d7b477;--ink:#080b12;--glass:rgba(12,16,25,.72);--muted:#aab2c0}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080b12;color:#fff;font-family:Arial,Helvetica,sans-serif}
+.wall{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,7,12,.94) 0%,rgba(4,7,12,.67) 48%,rgba(4,7,12,.12) 100%),radial-gradient(ellipse at 76% 58%,#7a6550 0%,#354c58 25%,#1a2837 49%,#0b111b 75%);transition:filter .4s}
+.wall:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080b12 0%,transparent 40%)}
+main{position:relative;z-index:1;height:100%;padding:5vh 5.5vw;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:flex-start}.brand{font-size:1.15vw;letter-spacing:.34em;color:var(--gold);font-weight:bold}.clock{text-align:right;font-size:1vw;color:#d8deea}.clock strong{display:block;font-size:2.2vw;font-weight:300;letter-spacing:.03em;color:white}
+.hero{margin-top:10vh;max-width:55vw}.eyebrow{color:var(--gold);font-size:.85vw;letter-spacing:.28em;text-transform:uppercase}.hero h1{font-size:4.4vw;line-height:1.02;font-weight:500;margin:.8rem 0 1rem;letter-spacing:-.04em}.hero p{color:#d0d6df;font-size:1.15vw;line-height:1.6;max-width:38vw;margin:0}.actions{display:flex;gap:1vw;margin-top:2.2vh}.hint{border:1px solid rgba(255,255,255,.28);border-radius:4px;padding:.8vw 1.25vw;background:rgba(255,255,255,.08);font-size:.9vw;color:#fff}
+.section{margin-top:auto}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2vh}.section-head h2{font-size:1vw;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:#d9dfeb}.section-head span{font-size:.75vw;color:var(--muted)}
+.apps{display:grid;grid-template-columns:repeat(6,1fr);gap:1vw}.app{height:12vh;border:1px solid rgba(255,255,255,.14);background:var(--glass);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8vh;outline:none;transition:.15s;backdrop-filter:blur(12px);color:#fff}.app .ico{font-size:2vw;font-weight:bold;color:var(--gold)}.app b{font-size:.85vw;font-weight:500}.app:focus,.app.selected{border:2px solid var(--gold);background:rgba(215,180,119,.17);transform:scale(1.035);box-shadow:0 0 0 3px rgba(215,180,119,.12)}
+.footer{display:flex;justify-content:space-between;color:#8994a5;font-size:.7vw;margin-top:2vh}.panel{position:absolute;z-index:4;right:4vw;top:15vh;width:27vw;padding:2vw;border:1px solid #ffffff30;border-radius:12px;background:rgba(8,12,20,.94);box-shadow:0 20px 80px #0009;display:none}.panel.open{display:block}.panel h3{margin:0 0 1.5rem;font-size:1.5vw}.panel button{display:block;width:100%;text-align:left;margin:.6rem 0;padding:.9rem;background:#ffffff12;border:1px solid #ffffff20;border-radius:6px;color:white;font-size:1vw}.note{font-size:.8vw;color:#aab2c0;line-height:1.5}
+@media(max-width:900px){main{padding:4vh 4vw}.brand{font-size:3vw}.clock{font-size:2vw}.clock strong{font-size:5vw}.hero{max-width:90vw;margin-top:8vh}.eyebrow{font-size:2vw}.hero h1{font-size:9vw}.hero p{font-size:3vw;max-width:80vw}.hint{font-size:2.5vw;padding:2vw}.section-head h2{font-size:2.5vw}.section-head span{font-size:2vw}.apps{grid-template-columns:repeat(3,1fr);gap:2vw}.app{height:10vh}.app .ico{font-size:5vw}.app b{font-size:2.5vw}.footer{font-size:2vw}.panel{width:80vw;right:5vw}.panel h3{font-size:5vw}.panel button{font-size:3vw}.note{font-size:2.5vw}}
+</style>
+</head>
+<body>
+<div class="wall" id="wall"></div>
+<main>
+<header class="top"><div class="brand">ZWIVHUYAEX <span style="color:#fff">DIGITAL</span></div><div class="clock"><strong id="time">--:--</strong><span id="date">Loading date…</span></div></header>
+<section class="hero">
+<div class="eyebrow">CINEMATIC HOME · CONCEPT BUILD</div>
+<h1>Your screen.<br><span style="color:var(--gold)">Your universe.</span></h1>
+<p>A quieter, more intentional home for your entertainment. Select a tile to preview the experience. This browser prototype demonstrates the interface and remote navigation; it does not yet launch VIDAA system apps.</p>
+<div class="actions"><span class="hint">OK · Select</span><span class="hint">◀ ▶ ▲ ▼ · Navigate</span><span class="hint">BACK · Close panel</span></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Entertainment</h2><span id="weather">Weather · Connect a forecast provider in a later build</span></div>
+<div class="apps" id="apps">
+<button class="app" data-name="Netflix"><span class="ico">N</span><b>Netflix</b></button>
+<button class="app" data-name="YouTube"><span class="ico">▶</span><b>YouTube</b></button>
+<button class="app" data-name="Prime Video"><span class="ico">P</span><b>Prime Video</b></button>
+<button class="app" data-name="Showmax"><span class="ico">S</span><b>Showmax</b></button>
+<button class="app" data-name="DStv Stream"><span class="ico">D</span><b>DStv Stream</b></button>
+<button class="app" data-name="Settings"><span class="ico">⚙</span><b>Settings</b></button>
+</div>
+<div class="footer"><span>ZWIVHUYAEX CINEMATIC · VIDAA HTML5 PROTOTYPE</span><span>DEMO MODE · v0.1</span></div>
+</section>
+</main>
+<aside class="panel" id="panel"><h3 id="panelTitle">Settings</h3><p class="note" id="panelText">Choose a wallpaper mood. This setting is local to this browser session.</p><button data-wall="warm">01 · Warm dusk</button><button data-wall="blue">02 · Midnight blue</button><button data-wall="mono">03 · Monochrome</button><button id="close">Close · Back</button></aside>
+<script>
+const apps=[...document.querySelectorAll('.app')];let index=0;function focus(){apps.forEach((a,i)=>a.classList.toggle('selected',i===index));apps[index].focus({preventScroll:true})}
+function tick(){const d=new Date();document.getElementById('time').textContent=d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});document.getElementById('date').textContent=d.toLocaleDateString([], {weekday:'long',day:'numeric',month:'long'})}tick();setInterval(tick,1000);focus();
+const panel=document.getElementById('panel');function closePanel(){panel.classList.remove('open');focus()}
+function select(){const name=apps[index].dataset.name;if(name==='Settings'){panel.classList.add('open');document.getElementById('panelTitle').textContent='Personalise your screen';document.getElementById('panelText').textContent='Select a background mood. Wallpaper persistence and real VIDAA integrations are planned for a later build.'}else{document.getElementById('panelTitle').textContent=name;document.getElementById('panelText').textContent='Preview only: opening installed VIDAA applications requires supported VIDAA system APIs and an approved app deployment route.';panel.classList.add('open')}}
+document.addEventListener('keydown',e=>{if(panel.classList.contains('open')){if(e.key==='Escape'||e.key==='Backspace'){e.preventDefault();closePanel()}return}let next=index;if(e.key==='ArrowRight')next=Math.min(apps.length-1,index+1);else if(e.key==='ArrowLeft')next=Math.max(0,index-1);else if(e.key==='ArrowDown')next=Math.min(apps.length-1,index+3);else if(e.key==='ArrowUp')next=Math.max(0,index-3);else if(e.key==='Enter'){e.preventDefault();select();return}else if(e.key==='Escape'||e.key==='Backspace'){return}else{return}e.preventDefault();index=next;focus()});
+document.getElementById('close').onclick=closePanel;document.querySelectorAll('[data-wall]').forEach(b=>b.onclick=()=>{const w=document.getElementById('wall');const v=b.dataset.wall;w.style.filter=v==='warm'?'sepia(.45) saturate(1.2)':v==='blue'?'hue-rotate(25deg) saturate(.8)':'grayscale(1)';});
+apps.forEach((a,i)=>a.onclick=()=>{index=i;focus();select()});
+</script>
+</body></html>
